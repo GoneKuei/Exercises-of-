@@ -1,0 +1,96 @@
+%# -*- coding:utf-8 -*-
+%! Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = pdflatex
+\documentclass{article}%{ctexart}
+\usepackage{CJKutf8}
+
+\usepackage{amsmath,amssymb,amsthm,color,mathrsfs}
+\usepackage{enumitem,anysize}%
+\marginsize{1in}{1in}{1in}{1in}%
+
+\theoremstyle{remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem{lemma}{Lemma}
+
+\DeclareMathOperator{\ot}{ordertype}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Ord}{Ord}
+
+\newcommand{\cc}{\mathfrak{c}}
+\def\pow#1{\mathscr P #1}
+
+\def\<{\langle}
+\def\>{\rangle}
+\def\r{\mathbb{R}}
+\def\res{\!\upharpoonright\!}
+\def\dif{\mathrm{d}}
+\def\bcup{\textstyle\bigcup}
+\def\bcap{\textstyle\bigcap}
+\def\bsum{\textstyle\sum}
+\def\bprod{\textstyle\prod}
+\def\Oset{\varnothing}
+\def\diff{\mathbin{{\Delta}}}
+
+\def\email#1{{\texttt{#1}}}
+
+\long\def\prob#1\soln#2\endps{{\color{blue}#1}\medskip\par
+    \noindent\underline{\sc Solution}:\hspace*{1em}\parindent=2em #2}
+\newcommand{\isep}[1][0pt]{\addtolength{\itemsep}{#1}}
+
+\AtBeginDocument{\begin{CJK}{UTF8}{gbsn}}
+\AtEndDocument{\end{CJK}}
+%%%%%%%%
+
+\begin{document}
+\title{Differential Geometry HW1}
+\author{段奎元\\ %% 姓名
+SID: 201821130049\\ %% 学号
+\email{dkuei@outlook.com}} %% 电邮
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+\isep[1em]
+\item%
+\prob
+$S^n$的N极和S极球极投影是相同的光滑结构。
+\soln
+将$S^n$作为$\r^{n+1}$的子拓扑, 并用球坐标$(\rho,\theta_1,\cdots,\theta_n)=(\rho,\vec{\theta})$表示. 有球极投影$\varphi_1:S^n\setminus\{N\}\to\r^n$, $\varphi_2:S^n\setminus\{S\}\to\r^n$,
+\begin{align*}
+    \varphi_1:& \vec{\theta}\mapsto \frac{2}{\tan\frac{\theta_1}{2}}(\cos\theta_2,\cos\theta_3\sin\theta_2,\dots,\sin\theta_n\sin\theta_{n-1}\cdots\sin\theta_2)
+    \\ \varphi_2:& \vec{\theta}\mapsto 2\tan\frac{\theta_1}{2}(\cos\theta_2,\cos\theta_3\sin\theta_2,\dots,\sin\theta_n\sin\theta_{n-1}\cdots\sin\theta_2)
+\end{align*}
+这样, 在$S^n\setminus\{N,S\} $上的坐标变换函数为,
+$$
+    \varphi_1\circ\varphi_2^{-1}:\r^n\setminus\{0\}  \to \r^n\setminus\{0\} 
+$$
+\begin{equation*}
+    2\tan\frac{\theta_1}{2}(\cos\theta_2,\cos\theta_3\sin\theta_2,\dots,\sin\theta_n\sin\theta_{n-1}\cdots\sin\theta_2) \mapsto \frac{2}{\tan\frac{\theta_1}{2}}(\cos\theta_2,\cos\theta_3\sin\theta_2,\dots,\sin\theta_n\sin\theta_{n-1}\cdots\sin\theta_2)
+\end{equation*}
+将上式转化为$\r^n$的直角坐标,
+$$\vec{x}\mapsto 4\frac{\vec{x}}{\vec{x}^2}$$
+在$\r^n\setminus\{0\}$中, 函数$\varphi_1\circ\varphi_2^{-1}(\vec{x})=\frac{4\vec{x}}{\vec{x}^2}$是光滑函数. 因此, $\{(S^n\setminus\{N\},\varphi_1),(S^n\setminus\{S\},\varphi_2)\}$是$S^n$的一个光滑结构.
+\endps
+\item%
+\prob
+映射$\varphi:\r\to T^2\cong\r^2/\mathbb{Z}^2$, 
+$$ t\mapsto [(t,rt)], \forall x,y\in \r^2, x\sim y \text{ iff } x-y\in \mathbb{Z}^2$$
+是单的浸入但不是嵌入，若$r$是无理数。
+\soln
+\begin{enumerate}
+    \item $\varphi$是单射。$\forall s,t\in \r$, 若$\varphi(s)=\varphi(t)$, 则$\varphi(s)-\varphi(t)\in \mathbb{Z}^2$, 即$$(s-t,r(s-t))\in \mathbb{Z}^2.$$因$r$是无理数, 上式成立当且仅当$s=t$, $\varphi$是单射. 
+    \\ 若$r\in\mathbb{Q}$, 由上式可知$\varphi$是周期函数.
+    \item $\forall t\in \r, \dif\varphi_t$是单射。$\forall t\in \r$, $T_t\r\cong\r$, 取$X,Y\in T_t\r$且$X\neq Y$, 则存在$k\in\r,k\neq 1$使得$Y=kX$. 记$T^2$的投影映射$f: T^2\to (-\frac{1}{2},\frac{1}{2})\subset\r$,
+    $$[(x,y)]\mapsto \bar{x}-\frac{1}{2},$$
+    其中$\bar{x}$表示$x$的小数部分. 限制曲线参数在$(-\varepsilon,\varepsilon),\varepsilon\in(0,\frac{1}{2})$计算
+    $$\dif\varphi_t X (f)=\frac{\dif}{\dif t}\res_{t=0}t=1,$$
+    $\dif\varphi_t Y (f)=k \dif\varphi_t X (f)=k\neq 1$, 所以$\dif\varphi_t X\neq \dif\varphi_t Y$. $\dif\varphi_t$是单射.
+    \item $\r\not\cong \varphi(\r)\subset T^2$，因此不是嵌入。$\forall [(x,y)]\in T^2$, $\exists n\in\mathbb{Z}, [(x+n,r(x+n))]\in \varphi(\r)$. 因为 $r\mathbb{Z}+\mathbb{Z}$在$\r$中稠密, $\forall \varepsilon>0$存在$n$使得$d(0,[(n,r(x+n)-y)])<\varepsilon$. 因此$\varphi(\r)$在$T^2$中稠密. 
+    \\如前所述, 若$[(x,y)]\in\varphi(\r)$, 对每个$\varepsilon>0$存在$n$可取一列${x+n_i}\subset\r$, ${x+n_i}$在$\r$不一定收敛, 而在$\varphi(R)$中收敛到$[(x,y)]$. 因而$\r\not\cong \varphi(\r)\subset T^2$, $\varphi$不是嵌入.
+\end{enumerate}
+\endps
+\end{enumerate}
+
+\end{document}

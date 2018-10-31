@@ -1,0 +1,51 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+
+\title{Probability Theory HW6}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+	\isep[1em]
+
+\prob\textit{Page 72,1}
+Suppose $f$ be integrable. Prove that, $$
+\int_\Omega f \d \mu = \lim_{n\to \infty}\sum_{i=-\infty}^\infty \frac{i}{2^n} \mu(\{\frac{i}{2^n}\leq f< \frac{i+1}{2^n}\}). $$
+\soln
+$\int_\Omega f \d \mu = \mu(f^+)-\mu(f^-)$, for $f^+$ is a nonnegative measurable function, there is the sequence of simple functions $$
+f^+_n= \sum_{i=1}^\infty \frac{i}{2^n} 1_{\{\frac{i}{2^n}\leq f^+< \frac{i+1}{2^n}\}}+\infty 1_{\{f^+=\infty\}}. $$
+Since $f^+_n \uparrow f^+$, 
+\begin{align*}
+	\mu(f^+) & =\lim_{n\to \infty} \mu(f^+_n) \\
+	& =\lim_{n\to \infty}\sum_{i=1}^\infty \frac{i}{2^n} \mu(\{\frac{i}{2^n}\leq f^+< \frac{i+1}{2^n}\}) +\infty \mu(\{f^+=\infty\}) \\
+	& =\lim_{n\to \infty}\sum_{i=1}^\infty \frac{i}{2^n} \mu(\{\frac{i}{2^n}\leq f< \frac{i+1}{2^n}\}) +\infty \mu(\{f=\infty\}).
+\end{align*}
+Similarly, 
+\begin{align*}
+	\mu(f^-) & =\lim_{n\to \infty} \mu(f^-_n) \\
+	& =\lim_{n\to \infty}\sum_{i=1}^\infty \frac{i-1}{2^n} \mu(\{\frac{i-1}{2^n}< f^- \leq \frac{i}{2^n}\}) +\infty \mu(\{f^-=\infty\}) \\
+	& =\lim_{n\to \infty}\sum_{i=-\infty}^0 \frac{i}{2^n} \mu(\{\frac{i}{2^n}\leq f< \frac{i+1}{2^n}\}) +\infty \mu(\{f=\infty\}).
+\end{align*}
+
+\newpage
+\prob\textit{Page 72,2}
+Suppose $f$ is a nonnegative measurable function. Let $$
+\bar{\int_\Omega} f \d\mu = \inf\{\mu(g) \mid g\geq f, g \text{ is a simple function} \}. $$
+Show that $\bar{\int_\Omega} f \d\mu$ may not equal to ${\int_\Omega} f \d\mu$ by an example, and explain why not define the integral by $\bar{\int_\Omega} f \d\mu$.
+\soln 
+\vspace{4cm}
+
+\prob\textit{Page 72,5}
+If $f$ is a measurable complex function, then $$
+| {\int_\Omega} f \d\mu | \leq {\int_\Omega} |f| \d\mu.$$
+\soln
+\vspace{4cm}
+
+\prob
+
+\soln 
+
+
+\end{enumerate}\end{document}

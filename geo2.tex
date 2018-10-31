@@ -1,0 +1,59 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+\title{Differential Geometry HW2}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+\isep[1em]
+
+\prob The transition function between two axis of the vector bundle is smooth. 	
+\soln
+For any $i=1,2,\cdots,n$, $\frac{\partial}{\partial y^i}=A_{ij}\frac{\partial}{\partial x^j}$ since $\frac{\partial}{\partial x^j}$ is a basis of $T\!\!_p\!M$. For any axis function $x^k$, make the vector acts on it,
+\begin{align*}
+	\frac{\partial x^k}{\partial y^i}&=A_{ij}\frac{\partial x^k}{\partial x^j}
+	\\ &=A_{ij} \delta_{jk}
+	\\ &=A_{ik}
+\end{align*}
+Then $\frac{\partial}{\partial y^i}=\frac{\partial x^j}{\partial y^i}\frac{\partial}{\partial x^j}$, the Jacob matrix is $\frac{\partial x^j}{\partial y^i}$.
+\prob $M$ is a differential manifold. For $X,Y\in \t M$, verify that $X\circ Y$ is not in $\t M$ and $[X,Y]\in \t M$.
+\soln
+	For any $f,g\in C^\infty (M)$, 
+	\begin{align*}
+		X\circ Y(fg)& = X(fY(g)+Y(f)g)
+		\\ & = X(f) Y(g)+f X\circ Y(g)+X\circ Y(f) g+Y(f) X(g);
+		\\ [X,Y](fg)& = X\circ Y(fg) - Y\circ X(fg)
+		\\ & = X(f) Y(g)+f X\circ Y(g)+X\circ Y(f) g+Y(f) X(g)
+		\\ & - (Y(f) X(g)+f Y\circ X(g)+Y\circ X(f) g+X(f) Y(g))
+		\\ & = f[X,Y](g)+[X,Y](f)g.
+	\end{align*}
+$X\circ Y$ does not satisfy Leibniz formula, is not in $\t M$. 
+
+For any $\alpha,\beta\in \r$, there are constent functions in $C^\infty (M)$ which equal to $\alpha,\beta$ respectively. We denote the constent functions by $\alpha,\beta$ themselves.
+\begin{align*}
+	[X,Y](f+g) &= X (Y(f+g))- Y(X(f+g))
+	\\ & = X(Y(f)+Y(g))- Y(X(f)+Y(g))
+	\\ & = X\circ Y(f)+X\circ Y(g)-Y\circ X(f)-Y\circ X(g)
+	\\ & = [X,Y]f+[X,Y]g;
+	\\ [X,Y](\alpha f+\beta g) &= [X,Y](\alpha f)+ [X,Y](\beta g)
+	\\ &= \alpha [X,Y](f)+[X,Y](\alpha)f+\beta [X,Y](g)+[X,Y](g)\beta
+	\\ &= \alpha [X,Y](f)+\beta [X,Y](g).
+\end{align*}
+$[X,Y]$ satisfies Leibniz formula and has linear property. $[X,Y]\in \t M$.
+	%为什么优秀的作品能鼓舞人？举例说明。
+
+\prob The communator $[X,Y]$ can expand by axis vectors in a coordinate neighbourhood.
+\soln Suppose $X= X_i \frac{\partial}{\partial x^i}$, $Y= Y_i \frac{\partial}{\partial x^i}$. For an axis function $x_k \in C^\infty (M)$,
+\begin{align*}
+	[X,Y] (x_k) &= X(Y x_k)- Y(X x_k)
+	\\ &= X(Y_i \frac{\partial x_k}{\partial x^i})- Y(X_i \frac{\partial x_k}{\partial x^i})
+	\\ &= X(Y_k)- Y(X_k)
+	\\ &= X_i \frac{\partial Y_k}{\partial x^i}- Y_i \frac{\partial X_k}{\partial x^i}.
+\end{align*}
+Since we have known $[X,Y]\in \t M$, thus $[X,Y]$ can be represented by $\frac{\partial}{\partial x^i}$,
+$$[X,Y]=(X_i \frac{\partial Y_k}{\partial x^i}- Y_i \frac{\partial X_k}{\partial x^i}) \frac{\partial}{\partial x^k}.$$
+
+\end{enumerate}
+\end{document}

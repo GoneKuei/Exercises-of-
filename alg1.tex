@@ -1,0 +1,92 @@
+%# -*- coding:utf-8 -*-
+%! Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode
+%!TEX TS-program = pdflatex
+\documentclass{article}%{ctexart}
+%\usepackage{CJKutf8}
+\usepackage[UTF8]{CTeX}
+
+\usepackage{amsmath,amssymb,amsthm,color,mathrsfs}
+\usepackage{enumitem,anysize}%
+\marginsize{1in}{1in}{1in}{1in}%
+\DeclareMathOperator{\ot}{ordertype}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Ord}{Ord}
+
+\newcommand{\cc}{\mathfrak{c}}
+\def\pow#1{\mathscr P #1}
+\def\r{\mathbb{R}}
+\def\zz{\mathbb{Z}}
+\def\n{\mathbb{N}}
+
+\def\<{\langle}
+\def\>{\rangle}
+\def\res{\!\upharpoonright\!}
+\def\bcup{\textstyle\bigcup}
+\def\bcap{\textstyle\bigcap}
+\def\bsum{\textstyle\sum}
+\def\bprod{\textstyle\prod}
+\def\Oset{\varnothing}
+\def\diff{\mathbin{{\Delta}}}
+\def\email#1{{\texttt{#1}}}
+
+\long\def\prob#1\soln#2\endps{{\color{blue}#1}\medskip\par
+	\noindent\underline{\sc Solution}:\hspace*{1em}\parindent=2em #2}
+\newcommand{\isep}[1][0pt]{\addtolength{\itemsep}{#1}}
+
+%\AtBeginDocument{\begin{CJK}{UTF8}{gbsn}}
+%\AtEndDocument{\end{CJK}}
+%%%%%%%%
+
+\begin{document}
+\title{Algebra HW2}
+\author{段奎元\\ %% 姓名
+SID: 201821130049\\ %% 学号
+\email{dkuei@outlook.com}} %% 电邮
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+\isep[1em]
+\item%
+\prob
+	\textit{Page 63,4} Give an example to show that the weak direct product is not a coproduct in the category of all groups. (Hint: it suffices to consider the case of two factors $G\times H$)
+\soln
+  Consider the weak direct product $\zz_2 \times \zz_2=D_2=\{1,a,b,ab\}$ where $a^2=b^2=1$. $\zz_2\cong\{1,a\}$. 
+  The morphism from $\{1,a\}$ to $D_2$ is not unique because it can be $f: 1\mapsto 1, a\mapsto b$,  or the inclusion map $\mathrm{id}: 1\mapsto 1, a\mapsto a$. Hence the (weak) direct product is not a coproduct in the category of all groups.
+\endps
+\item%
+\prob
+	\textit{Page 63,7} Let $H,K,N$ be nontrivial normal subgroups of a group $G$ and suppose $G=H\times K$. Prove that $N$ is in the center of $G$ or $N$ intersects one of $H,K$ nontrivially. Give examples to show that both possibilities can actually occur when $G$ is nonabelian.
+\soln
+\texttt{NOTATION: It is necessary that $N\neq H,K$ (otherwise, $N=H$ intersects both $H,K$ trivially and may not in the center of $G$).}
+
+\noindent It suffices to prove $N\subset C(G)$ when $N\cap H=N\cap K=\{e\}$. For any $h\in H,n\in N$, $hnh^{-1}\in N$ since $N\trianglelefteq G$, then $hnh^{-1}n^{-1}\in N$ since $N$ is a subgroup. Meanwhile $hnh^{-1}n^{-1}=h(nh^{-1}n^{-1})\in H$, so $hnh^{-1}n^{-1}\in H\cap N=\{e\}$ i.e. $hnh^{-1}n^{-1}=e$. We get $hn=nh$ and for any $k\in K$ $kn=nk$ by the same impication. 
+\\ For any element in $G$, it equals to $hk$ for some $h\in H, k\in K$ since $G=H\times K$. $\forall n\in N$, $$(hk)n=h(kn)=h(nk)=(hn)k=(nh)k=n(hk)$$ shows that $N\subset C(G)$.
+\begin{enumerate}
+\item
+The group $G=\zz_2\times S_3=$ 
+\begin{align*}
+	\{&e=(1,1),(1,132),(1,231),(1,213),(1,312),(1,321),
+	\\ & (21,1),(21,132),(21,231),(21,213),(21,312),(21,321)\}
+\end{align*} 
+	has $\zz_2, \zz_2\times A_3, \zz_2\times S_3, \zz_3, A_3$ and $S_3$ as the nontrivial normal subgroup. The center of group $G$ $C(G)=C(\zz_2)\times C(S_3)=\zz_2$ because
+\begin{align*}
+	C(G)&=C(H\times K)=\{(h_0,k_0)\mid \forall (h,k)\in G, (h h_0,k k_0)=(h_0 h,k_0 k)\}
+	\\ &=\{h_0\mid \forall h\in H, h h_0=h_0 h\}\times\{k_0\mid \forall k\in K, k k_0=k_0 k\}=C(H)\times C(K).
+\end{align*}
+\item	
+The group $G=\zz_2\times(\zz_2\times S_3)$ has normal subgroups $\{(1,1,1),(21,21,1)\}$ in the center of $G$ with intersects both $\zz_2$ and $D_6=\zz_2\times S_3$ both trivially.	
+\end{enumerate}
+\endps
+\item
+\prob
+\textit{Page 68,9} The group defined by the generator $b$ and the relation $b^m=e (m\in\n^\ast)$ is the cyclic group $\zz_m$.
+\soln
+If $F$ is the free group on $\{b\}$, consider the morphism $f:F\to \zz_m$ mapping $b^n$ to $[n]_m$ for any $n\in\zz$. $\forall l,n\in \zz$, $$f(b^l b^n)=f(b^{l+n})=[l+n]_m=[l]_m+[n]_m=f(b^l)+f(b^n),$$ and $[n]_m=f(b^n)$, so $f$ is a group epimorphism. 
+\\ $\mathrm{Ker}(f)=\{b^n\mid f(b^n)=[n]_m=[0]_m,\textrm{ i.e. }m|n\}$, so $F/\mathrm{Ker}(f)\cong \zz_m$. $F/\mathrm{Ker}(f)$ is the group defined by the generator $b$ and the relation $b^m=e(m\in\n^\ast)$.
+\endps
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,87 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+\title{Algebra HW3}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+\isep[1em]
+
+\prob
+	\textit{Page 111,1} 
+	\begin{enumerate}
+		\item Find a normal series of $D_4$ consisting of 4 subgroups.
+		\item Find all composition series of the group $D_4$. \label{allc}
+		\item Do part \eqref{allc}  for the group $A_4$.
+		\item Do part \eqref{allc}  for the group $S_3\times Z_2$.
+		\item Find all composition factors of $S_4$ and $D_6$. 
+	\end{enumerate}
+\soln
+\begin{enumerate}
+	\item $D_4>Z_4>Z_2>\{e\}$, it is also a composition series.
+	\item The only composition factor of $D_4$ is $Z_2$ according to the last series. By applying the Jordan-H\"{o}lder Theorem, the composition series are $D_4>Z_4>Z_2>\{e\}$, $D_4>K_4>Z_2>\{e\}$.
+	\item $A_4$
+	\item $S_3\times Z_2=D_6$ has $Z_2,Z_3$ as its simple normal subgroups.
+
+	$S_3\times Z_2>S_3>Z_3>\{e\}$,
+
+	$S_3\times Z_2>Z_6>Z_3>\{e\}$,
+
+	$S_3\times Z_2>S_3>Z_2>\{e\}$, 
+	
+	$S_3\times Z_2>Z_6>Z_2>\{e\}$.
+	\item The composition factors of $D_6$, according to the last composition series of $S_3\times Z_2=D_6$, are $Z_2,Z_3,Z_2$.
+
+	$S_4>A_4> $
+\end{enumerate}
+%1238,12
+\prob \textit{Page 111,2}
+	If $G=G_0>G_1>\cdots>G_n$ is a subnormal series of a finite group $G$, then 
+	$|G|=\left(\prod\limits_{i=0}^{n-1}|G_i/G_{i+1}|\right)|G_n|$.
+	\label{seriprod}
+\soln The conclusion is proved by induction and Lagrange Theorem.
+	\begin{itemize}
+		\item If $n=1$, $|G|=|G_0/G_1||G_1|$ follows from Lagrange Theorem.
+		\item It suffices to prove 
+	$|G|=\left(\prod\limits_{t=0}^{n}|G_i/G_{i+1}|\right)|G_{n+1}|$ if 
+	$|G|=\left(\prod\limits_{t=0}^{n-1}|G_i/G_{i+1}|\right)|G_n|$. Since $|G_n|=|G_n/G_{n+1}||G_{n+1}|$, by induction we get the conclusion.
+	\end{itemize}
+\prob\textit{Page 111,3} If $N$ is a simple normal subgroup of a group $G$ and $G/N$ has a composition series, then $G$ has a composition series.
+\soln
+Assuming 
+$G/N=H_0>H_1>\cdots>H_n$ 
+is the composition series, and then 
+$G=H_0N>H_1N>\cdots>H_nN>N$ is the composition series of $G$. 
+
+For any $g\in G$, there exist a unique $h_0\in H_0$ and a unique $n\in N$ such that $g\in h_0N$ and $g=h_0 n$; then we get a homorphism between $G$ and $H_0N$, $G=H_0N$.
+
+Let $H_{n+1}=\{e\}$, then $H_{n+1}\lhd H_{n}$ trivially. For $i=0,1,\cdots,n$, $\forall h_0, h_1\in H_{i+1}, h\in H_{i}, n_0,n\in N$, 
+\begin{align*}
+	(hN)^{-1} h_0N hN &= N h^{-1} h_0N Nh
+	\\ &= h^{-1} h_0 h N,
+	\\ (h_1N)^{-1} h_0N &= N h_1^{-1} h_0N
+	\\ &= h_1^{-1} h_0 h N.
+\end{align*}
+Therefore $H_{i+1}N\lhd H_{i}N$ since $H_{i+1}\lhd H_{i}$. Because $N$ is a simple group (with no proper normal subgroups) and $H_{i}N / H_{i+1}N=H_i/H_{i+1}$ is simple 
+$G=H_0N>H_1N>\cdots>H_nN>N$ is the composition series of $G$.
+
+\prob\textit{Page 112,8} If $H$ and $K$ are solvable subgroups of $G$ with $H\lhd G$, then $HK$ is a solvable subgroup of $G$.
+\soln A group is solvable iff it has a subnoral series with every factors abelian. Assuming the series of $H,K$ are 
+$H=H_0>H_1>\cdots>H_n$,  
+$K=K_0>K_1>\cdots>K_m$ respectively. 
+
+$HK/H\cong K/(H\cap K)$ by second isomorphism Theorem. \newpage
+
+\prob\textit{Page 112,12} Prove the Fundamental Theorem of Arithmetic by applying the Jordan-H\"{o}lder Theorem to the group $Z_n$.
+\soln
+For any positive integer (except the number $1$) $n\in \mathbb{Z}\setminus\{1\}$, the group $Z_n$ is a finite group. Then $Z_n$ must has a composition series. 
+
+Because every subgroup of $Z_n$ is still a cyclic group, there exists a sequence $\{a_i\}$ such that 
+$Z_n=Z_{a_0}>Z_{a_1}>\cdots>Z_{a_m}$ is a composition series. According to Problem \ref{seriprod},
+$$n= \left(\prod\limits_{i=0}^{m-1}a_i/a_{i+1}\right)a_m.$$
+This representation of $n$ consist only primes since the series is composition and $Z_{a_i}/Z_{a_{i+1}}=Z_{a_i/a_{i+1}}$ is simple iff $a_i/a_{i+1}$ is prime. By applying the Jordan-H\"{o}lder Theorem, the representation is unique.
+
+\end{enumerate}
+\end{document}

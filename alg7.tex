@@ -1,0 +1,62 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+\title{Algebra HW7}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+	\isep[1em]
+
+\prob
+\textit{Page 148,1 }%35810共5题
+Determine the complete ring of quotients of the ring $Z_n$ for each $n\geq 2$.
+\soln
+For any $r \in R$, $i,j\in J$, $k,l\in K$, 
+\begin{align*}
+	(ri)a & =r(ia) =r0=0, \\
+	(i-j)a & =ia-ja=0-0=0; \\
+	a(kr) & =(ak)r =0r=0, \\
+	a(k-l) & =ak-al=0-0=0. 
+\end{align*}
+Thus $ri \in J, i-j \in J$, $J$ is a left ideal; $kr \in K, k-l \in K$, $K$ is a right ideal.
+\qed
+
+\prob
+\textit{Page 133,3}
+\begin{enumerate}
+	\item The set $E$ of positive even integers is a multiplicative subset of $Z$ such that $E-I(Z)$ is the field of rational numbers.
+	\item State and prove condition(s) on a multiplicative subset S of Z which insure
+that S-IZ is the field of rationals.
+\end{enumerate}
+\soln
+\begin{enumerate}
+	\item For any $a,b\in E$, $ab$ is still positive and even. Then $E$ is a multiplicative subset of $Z$.
+\end{enumerate}
+\qed
+
+\prob
+\textit{Page 148,5}
+Let $R$ be an integral domain with quotient field $F$. 
+If $T$ is an integral domain such that $R\subset T \subset F$, then $F$ is (isomorphic to) the quotient field of $T$.
+\soln
+
+\prob
+\textit{Page 148,8}
+Let $R$ be a commutative ring with identity, $I$ an ideal of $R$ and $\pi: R\to R/I$ the canonical projection.
+\begin{enumerate}
+	\item If $S$ is a multiplicative subset of $R$, then $\pi S = \pi(S)$ is a multiplicative subset of $R/ I$.
+	\item The mapping $\theta : S^{-1} R \to (\pi S)^{-1}(R/ I)$ given by $r/ s f\mapsto \pi(r)/\pi(s)$ is a welldefined function.
+	\item $\theta$ is a ring epimorphism with kernel $S^{-1}I$ and hence induces a ring isomorphism $S^{-1}R/S^{-1}I\cong (\pi S)^{-1}(R/ I)$.
+\end{enumerate}
+\soln
+
+\prob\textit{Page 148,10}
+Let $R$ be an integral domain and for each maximal ideal $M$ (which is also prime, of course), consider $R_M$ as a subring of the quotient field of $R$.
+Show that $\cap R_M = R$, where the intersection is taken over all maximal ideals $M$ of $R$.
+\soln
+
+%$|\frac{x^m-1}{x-1}-m|<\varepsilon$
+\end{enumerate}
+\end{document}

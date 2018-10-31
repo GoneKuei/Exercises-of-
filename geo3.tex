@@ -1,0 +1,66 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+\title{Differential Geometry HW3}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+\isep[1em]
+
+\prob A tensor is \textbf{decomposable} if it is the tensor product of several vectors. Is every tensor decomposable? Prove or give a counter example.
+\soln
+No. Assume that $V^*$ is a $2$-dimensional dual vector space over $\r$ with a basis $\{e_1,e_2\}$. 
+For a tensor $v\otimes w\in V^*\otimes V^*$, there exist $x\in \r^4$ such that $$
+v\otimes w=(e_1\otimes e_1, e_1\otimes e_2, e_2\otimes e_1, e_2\otimes e_2)\cdot x .$$
+If $v\otimes w$ is decomposable, $\exists a_1 e_1+ a_2 e_2, b_1 e_1+ b_2 e_2\in V^*$ such that 
+\begin{align*}
+	v\otimes w &= (a_1 e_1+ a_2 e_2)\otimes (b_1 e_1+ b_2 e_2) \\
+	&= a_1b_1 e_1\otimes e_1+a_1b_2 e_1\otimes e_2+a_2b_1 e_2\otimes e_1+a_2b_2 e_2\otimes e_2 \\
+	&= (e_1\otimes e_1, e_1\otimes e_2, e_2\otimes e_1, e_2\otimes e_2)\cdot (a_1b_1, a_1b_2, a_2b_1, a_2b_2)^T.
+\end{align*}
+Then $x=(a_1b_1, a_1b_2, a_2b_1, a_2b_2)^T$. Every tensor is decomposable means every $x\in \r^4$ has the later form; this is not true. For example, $x=(0,1,1,1)$, then $a_1b_1=0$ infers $a_1=0$ or $b_1=0$; hence $a_1b_2=0$ or $a_2b_1=0$, but $x_2=x_3=1\neq 0$. Contradiction!
+\qed
+
+\prob Calculate the induce metric of an ellipsoid surface, $$
+S^n_2=\{x\in \r^{n+1}\mid 4x_0^2+\sum_{i=1}^n x_i^2=1 \}\hookrightarrow \r^{n+1}. $$
+\soln
+Denote $N=(1/2,0,\cdots,0), S=(-1/2,0,\cdots,0)\in S^n_2$, $V_1=S^n_2\setminus \{N\}, V_2=S^n_2\setminus \{S\}$. $\{V_1,V_2\}$ is an open cover of $S^n_2$. Define the stereographic projection $X:\r^n \to V_1, Y:\r^n \to V_2,$ 
+\begin{align*}
+	X(\vec{x})& =\frac{1}{1+\vec{x}^2}(\frac{\vec{x}^2-1}{2},2\vec{x}), \\
+	Y(\vec{x})& =\frac{1}{1+\vec{y}^2}(\frac{1-\vec{y}^2}{2},2\vec{y})
+\end{align*}
+where $\vec{x}\in \r^n,(a,2\vec{x})\in \r^{n+1}$ for any $a\in \r$, $\vec{y}=\frac{\vec{x}}{\vec{x}^2}$.
+
+Denote the induce metrics of $(X,\r^n), (Y,\r^n)$ as $g^+,g^-$ respectively, the tagent vector $\frac{\partial}{\partial x_\alpha} \in T\r^{n+1}$ as $e_\alpha=(0,\cdots,1,\cdots,0)$ (the $\alpha$-th component is $1$ and all other components are $0$) for $0\leq\alpha\leq n$. Then in $V_1=X(\r^n)$, 
+\begin{align*}
+	\d X(\frac{\partial}{\partial x_i}) &= \frac{\partial X}{\partial x_i} \\
+	& = \frac{1}{(\vec{x}^2+1)^2}(2x_i, 2\delta_{1i}(\vec{x}^2+1)-4x_1 x_i,\cdots, 2\delta_{ni}(\vec{x}^2+1)-4x_n x_i)
+\end{align*}
+for $1\leq i\leq n$. Then
+\begin{align*}
+	g^+_{ij} & =\<\frac{\partial}{\partial x_i},\frac{\partial}{\partial x_j}\>_X 
+	=\<\d X(\frac{\partial}{\partial x_i}), \d X(\frac{\partial}{\partial x_j})\>_{\r^{n+1}} 
+	= \<\frac{\partial X}{\partial x_i}, \frac{\partial X}{\partial x_i}\> \\
+	& = \frac{4x_ix_j}{(\vec{x}^2+1)^4} +\sum_{k=1}^n\frac{(2\delta_{ki}(\vec{x}^2+1)-4x_k x_i)(2\delta_{kj}(\vec{x}^2+1)-4x_k x_j)}{(\vec{x}^2+1)^4} \\
+	& = \frac{4\delta_{ij}(\vec{x}^2+1)^2-12x_ix_j}{(\vec{x}^2+1)^4}.
+\end{align*}
+Hence we get 
+\begin{align*}
+	g^+ &= g^+_{ij} \d x_i \d x_j \\
+	& =\frac{4\delta_{ij}(\vec{x}^2+1)^2-12x_ix_j}{(\vec{x}^2+1)^4} \d x_i \d x_j .
+\end{align*} Similarly, 
+\begin{align*}
+	g^- &= \frac{4\delta_{ij}(\vec{y}^2+1)^2-12 y_iy_j}{(\vec{y}^2+1)^4} \d y_i \d y_j.
+\end{align*}
+On $V_1 \cap V_2$, 
+\begin{align*}
+	g^- &= \frac{4\delta_{ij}(\vec{y}^2+1)^2-12 y_iy_j}{(\vec{y}^2+1)^4} \d y_i \d y_j \\
+	&= \frac{4\delta_{ij}(1/\vec{x}^2+1)^2-12 x_ix_j/\vec{x}^4}{(1/\vec{x}^2+1)^4 \vec{x}^4} \d x_i \d x_j \\
+	&= \frac{4\delta_{ij}(\vec{x}^2+1)^2-12x_ix_j}{(\vec{x}^2+1)^4} \d x_i \d x_j
+\end{align*}
+\qed
+
+\end{enumerate}
+\end{document}

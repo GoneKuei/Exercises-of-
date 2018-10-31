@@ -1,0 +1,86 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+
+\title{Probability Theory HW5}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+	\isep[1em]
+
+\prob
+\textit{Page 46,13 Property 2.36}%14(2), 16, 22, 24
+\begin{enumerate}
+	\item If $f_n \aeto f$, then every subsequence $\{f_{n_k}\}$ satisfies $f_{n_k} \aeto f$.
+	\item If $f_n \aeto f, f_n \aeto f^\prime$, then $f=f^\prime \ae$.
+	\item If $f_n \aeto f, g_n=f_n \ae, f=g \ae$, then $g_n \aeto g$.
+	\item If $f_n^{(k)} \aeto f^{(k)},k=1,\cdots,m$, $g\in C(\bar{\r}^m)$, then $$
+	g(f_n^{(1)},\cdots,f_n^{(m)})\aeto g(f^{(1)},\cdots,f^{(m)}).$$
+\end{enumerate}
+\soln
+\begin{enumerate}
+	\item Since $f_n \aeto f$ there exists a null set $N$ s.t. $\forall x\in \Omega\setminus N, f_n(x)\to f(x)$. 
+	Thus for every subsequence $\{f_{n_k}\}, f_{n_k}(x)\to f(x)$, i.e. $f_{n_k} \aeto f$.
+	\item There exist two null sets $N,N^\prime$ such that 
+	$\forall x\in \Omega\setminus N, f_n(x)\to f(x)$, and 
+	\\ $\forall x\in \Omega\setminus N^\prime, f_n(x)\to f^\prime(x)$. 
+	Thus $\forall x\in \Omega\setminus (N\cup N^\prime), f_n(x)\to f(x), f_n(x)\to f^\prime(x)$; then $f(x)= f^\prime(x)$ for any $x\in \Omega\setminus (N\cup N^\prime)$. 
+	Since $\mu(N\cup N^\prime)=0$, we get $f=f^\prime \ae$.
+	\item There exist null sets $N_1,N_2,N_3$ for $f_n \aeto f, g_n=f_n \ae, f=g \ae$ respectively. 
+	For any $x\in \Omega\setminus (\cup_{i=1}^3 N_i), f_n(x) \to f(x), g_n(x)=f_n(x) , f(x)=g(x)$, so $g_n(x) \to g(x)$. 
+	Since $\mu(\cup_{i=1}^3 N_i)=0$, we get $g_n \aeto g$.
+	\item Denote $N_k=\{x\in \Omega^{(k)} \mid f_n^{(k)}(x) \not\to f^{(k)}(x) \} $, and we have $\mu(N_k)=0$ by $f_n^{(k)} \aeto f^{(k)},k=1,\cdots,m$.
+	For any $(x^{(1)},\cdots,x^{(m)})\in \prod_{k=1}^m \Omega^{(k)}\setminus N_k,$ 
+	$$\left(f_n^{(1)} (x^{(1)} ), \cdots, f_n^{(m)} (x^{(m)} )\right)\to \left(f^{(1)} (x^{(1)} ), \cdots, f^{(m)} (x^{(m)} )\right).$$
+	Since $\mu(\prod_{k=1}^m \Omega^{(k)}\setminus N_k)=\mu(\prod_{k=1}^m \Omega^{(k)})$, the convergence keeps $\ae$
+	By continuity of $g$, we get $$
+	g(f_n^{(1)},\cdots,f_n^{(m)})\aeto g(f^{(1)},\cdots,f^{(m)}).$$
+\end{enumerate}
+
+\prob
+\textit{Page 47,14 Theorem 2.38(2) }%14(2), 16, 22, 24
+
+Suppose $f,f_n,n\geq 1$ are finite measurable functions. Then $f_n-f_m\aeto 0$ if and only if $$
+\forall \varepsilon >0,\mu(\cap^\infty_{n=1}\cup^\infty_{v=1}\{|f_{n+v}-f_n |\geq \varepsilon\})=0. $$
+Specially when $\mu$ is finite, $f_n-f_m\aeto 0$ if and only if $$
+\forall \varepsilon >0,\mu(\cup^\infty_{v=1}\{|f_{n+v}-f_n |\geq \varepsilon\})\to 0(n\to\infty). $$
+\soln 
+$f_n-f_m\aeto 0$ if and only if $|f_{n+v}-f_n|\aeto 0$ by letting $n=\min\{m,n\}, v=|m-n|$. Notice 
+$\{|f_{n+v}-f_n |\geq \varepsilon\}=\{x: |f_{n+v}-f_n |\geq \varepsilon\}$.
+\begin{itemize}
+	\item[``$\Rightarrow$'':] 
+	There exists a null set $A$ such that $\forall \varepsilon >0$, there exists $N\in \mathbb{N}_+$ s.t. $\forall n\geq N, v\in  \mathbb{N}_+, x\in \Omega\setminus A, |f_{n+v}(x)-f_n(x) |<\varepsilon$.
+	Then $\mu(\cup^\infty_{n=N}\cup^\infty_{v=1}\{x: |f_{n+v}(x)-f_n(x) |\geq \varepsilon\})=0$, and apparently $$
+	\mu(\cap^\infty_{n=1}\cup^\infty_{v=1}\{|f_{n+v}-f_n |\geq \varepsilon\})= 0,
+	 \mu(\cup^\infty_{v=1}\{|f_{n+v}-f_n |\geq \varepsilon\})\to 0(n\to\infty).$$
+	\item[``$\Leftarrow$'':] 
+	When $\mu$ is finite, $\mu(\cup^\infty_{v=1}\{|f_{n+v}-f_n |\geq \varepsilon\})\to 0(n\to\infty)$ means $\forall \phi>0 \exists N$ s.t. $\mu(\cup^\infty_{v=1}\{|f_{n+v}-f_n |\geq \varepsilon\})< \phi$ for all $n\geq N$.
+	Then $\mu(\cap^\infty_{n=1}\cup^\infty_{v=1}\{|f_{n+v}-f_n |\geq \varepsilon\})=0$ for all $\varepsilon >0$. 
+\vspace{2em}
+\end{itemize}
+
+
+\prob\textit{Page 47,16}
+Let $\xi_n=1_{A_n}$, then $\xi_n \xrightarrow{\pp} 0$ if and only if $\pp(A_n)\to 0$.
+\soln For any $\varepsilon > 0$, $\{|\xi_n|\geq\varepsilon\}=\{A_n\}$.
+\begin{align*}
+	\xi_n \xrightarrow{\pp} 0 &\Leftrightarrow \forall \varepsilon >0,\pp(|\xi_n|\geq\varepsilon)\to 0(n\to \infty) \\
+	&\Leftrightarrow \forall \varepsilon >0,\pp(A_n)\to 0(n\to \infty) 
+\end{align*}
+
+\prob\textit{Page 47,22}
+For any random variable sequence $\xi_n$, there is a positive integer sequence $a_n$ s.t. $a_n \xi_n \xrightarrow{\pp} 0.$
+\soln $\xi_n \xrightarrow{\pp} 0 \Leftrightarrow \forall \varepsilon,\phi >0\exists N>0, \pp(|\xi_n|\geq\varepsilon)< \phi, \forall n\geq N$
+\vspace{3em}
+
+\prob\textit{Page 47,24}
+Prove two theorems 2.49 and 2.50.
+\begin{enumerate}
+	\item[Theorem 2.49] If $\xi_n-\xi^\prime_n\xrightarrow{\pp} 0$ and $\xi^\prime_n\xrightarrow{d} \xi$, then $\xi_n\xrightarrow{d} \xi$.
+	\item[Theorem 2.50] If $\xi_n\xrightarrow{d} \xi,\eta_n\xrightarrow{d}a(\mathrm{const})$, then $\xi_n+\eta_n\xrightarrow{d}\xi+a$. 
+\end{enumerate}
+\soln \vspace{5em}
+
+\end{enumerate}\end{document}

@@ -1,0 +1,65 @@
+
+\documentclass{article}%{ctexart}
+\usepackage{CJKutf8}
+%\usepackage[UTF8]{CTeX}
+%\usepackage{xeCJK} %调用 xeCJK 宏包
+%\setCJKmainfont{SimSun} %设置 CJK 主字体为 SimSun （宋体
+
+\usepackage{amsmath,amssymb,amsthm,color,mathrsfs}
+\usepackage{enumerate,anysize}%
+\usepackage{qrcode,fancyhdr}
+\usepackage{commath}
+%\pd,\dif,\od,...
+\pagestyle{fancy}
+\lhead{201821130049}%\rhead{段奎元}
+\marginsize{1in}{1in}{1in}{1in}%
+
+%%Settheory notation 
+\theoremstyle{remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem{lemma}{Lemma}
+\DeclareMathOperator{\ot}{ordertype}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Ord}{Ord}
+%\DeclareMathOperator{\sup}{sup}
+%\DeclareMathOperator{\inf}{inf}
+
+%\def\a#1{\mathbb{#1}}%代数常用的双体
+\def\p#1{\mathscr{#1}} %概率论常用的手写体
+\def\ae{\textrm{ a.e.}} \def\aeto{\xrightarrow{\ae}}
+\def\pp{\mathbb{P}}
+%微分几何符号用commath包的命令
+%\def\t{T\!\!}%微分几何用切空间
+%\def\d{\,\mathrm{d}}
+\def\r{\mathbb{R}}
+\newcommand{\cc}{\mathfrak{c}}
+\def\pow#1{\mathscr P #1}
+
+\def\<{\langle}
+\def\>{\rangle}
+\def\res{\!\!\upharpoonright\!\!_}%refine the restriction
+\def\bcup{\textstyle\bigcup}
+\def\bcap{\textstyle\bigcap}
+\def\bsum{\textstyle\sum}
+\def\bprod{\textstyle\prod}
+\def\Oset{\varnothing}
+\def\diff{\mathbin{{\Delta}}}
+
+\def\email#1{{\texttt{#1}}}
+\def\prob{\par\color{blue}\item}
+\def\soln{\color{black}\par\noindent\underline{\sc Solution}:\hspace*{1em}\parindent=2em}
+\newcommand{\isep}[1][0pt]{\addtolength{\itemsep}{#1}}
+
+\AtBeginDocument{\begin{CJK}{UTF8}{gbsn}}
+\AtEndDocument{\end{CJK}}
+%%%重新使用cjkutf8，因仅在姓名使用中文，章节定理等仍用英文%
+%\begin{document}%在document后定义含中文的命令
+\def\asemail{段奎元\\ %% 姓名
+	SID: 201821130049\\ %% 学号
+	\email{dkuei@outlook.com}} %% 电邮}aUTHORsIDeMAIL
+%尝试不用这些命令
+%# -*- coding:utf-8 -*-
+%! Mode:: "TeX:UTF-8"
+%!TEX encoding = UTF-8 Unicode 
+%!TEX TS-program = pdflatex

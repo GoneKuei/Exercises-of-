@@ -1,0 +1,166 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+\title{Algebra HW6}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+	\isep[1em]
+
+\prob
+\textit{Page 133,3 }%8,10,23,24共5题
+If $R$ is a ring and $a\in R$, then $J=\{r\in R \mid ra=0\}$ is a left ideal and 
+$K=\{r\in R \mid ar=0\}$ is a right ideal in $R$.
+\soln
+For any $r \in R$, $i,j\in J$, $k,l\in K$, 
+\begin{align*}
+	(ri)a & =r(ia) =r0=0, \\
+	(i-j)a & =ia-ja=0-0=0; \\
+	a(kr) & =(ak)r =0r=0, \\
+	a(k-l) & =ak-al=0-0=0. 
+\end{align*}
+Thus $ri \in J, i-j \in J$, $J$ is a left ideal; $kr \in K, k-l \in K$, $K$ is a right ideal.
+\qed
+
+\prob
+\textit{Page 133,8 }
+Let $R$ be a ring with identity and $S$ the ring of all $n\times n$ matrices over $R$. 
+$J$ is an ideal of $S$ if and only if $J$ is the ring of all $n\times n$ matrices over $I$ for some ideal $I$ in $R$. 
+
+[Hint: Given $J$, let $I$ be the set of all those elements of $R$ that appear as the row $1$-column $1$ entry of some matrix in $J$. 
+Use the matrices $E_{r,s}$, where $1 \leq r,s \leq n$, and $E_{r,s}$ has $1_R$ as the row $r$-column $s$ entry and $0$ elsewhere. 
+Observe that for a matrix $A = (a_{ij}), E_{p,r}AE_{s,q}$ is the matrix with $a_{rs}$ the row $p$-column $q$ entry and $0$ elsewhere.]
+\soln
+\begin{itemize}
+	\item[``$\Rightarrow$'':] Consider the set $I_{rs}=\{a\in R \mid aE_{rs}\in J\}$.
+	Since the elementary matrix switching the $i$-th and $j$-th row or column $P_{ij}\in R$, $I_{rs}=\{a\in R \mid aE_{rs}\in J\}=\{a\in R \mid P_{1s}aE_{rs}P_{1r}\in J\}=I_{11}$. Thus denote $I=I_{rs}$ for all $1 \leq r,s \leq n$. 
+	$I$ is an ideal since for any $a,b\in I, x\in R$, 
+	\begin{align*}
+		(a-b)E_{11} & = aE_{11}-bE_{11} \in J, \\
+		(xa)E_{11} & = xE_{11} aE_{11} \in J, \\
+		(ax)E_{11} & = aE_{11} xE_{11} \in J. 
+	\end{align*}
+	In addition, $J$ is the ring of all $n\times n$ matrices over $I$ since for any $1 \leq r,s \leq n$, $(a_{ij}) \in J$, $a_{rs}E_{rs}=(a_{ij})E_{rs} \in J$ infers $a_{rs}\in I_{rs}=I$. 
+	\item[``$\Leftarrow$'':] 
+	For any $(a_{ij}),(b_{ij}) \in J$ where $a_{ij},b_{ij} \in I$ for $1 \leq i,j \leq n$. 
+	For any $(x_{ij})\in R$, 
+	\begin{align*}
+		(a_{ij})-(b_{ij}) & = ((a-b)_{ij}) \in J, \\
+		(a_{ij})(x_{ij}) & = (\sum_{k=1}^n a_{ik}x_{kj}) \in J, \\
+		(x_{ij})(a_{ij}) & = (\sum_{k=1}^n x_{ik}a_{kj}) \in J.
+	\end{align*}
+	Thus $J$ is an ideal of $S$.
+\end{itemize}
+\qed
+
+\prob
+\textit{Page 133,10}
+\begin{enumerate}
+	\item Show that $Z$ is a principal ideal ring [see \textbf{Theorem I.3.1}].
+	\item Every homomorphic image of a principal ideal ring is also a principal ideal ring.
+	\item $Z_m$ is a principal ideal ring for every $m > 0$.
+\end{enumerate}
+\soln
+\begin{enumerate}
+	\item By \textbf{Theorem I.3.1}, every subgroup of $Z$ has the form $\<m\>$ for some $m\in Z$. Since every ideal of $Z$ must be subgroup of $Z$, it must have the form $\<m\>$ and is a principal ideal.
+	In addition, $\forall n\in Z$, $km \in \<m\>$, $nkm=(nk)m \in \<m\>$. Since $Z$ is communitative, $\<m\>$ is an ideal of $Z$. Thus every ideal of $Z$ is of the form $\<m\>$.
+	\item Assume $P$ is a principal ideal ring, $R$ is a ring, $\phi$ is a homomorphism from $P$ to $R$; then $\phi(P)$ is a ring. For any ideal $I$ in $\phi(P)$, $\forall a,b \in \phi^{-1}(I), x \in P$, \begin{align*}
+		\phi(a-b) & = \phi(a)-\phi(b) \in I, \\
+		\phi(xa) & = \phi(x)\phi(a) \in I, \\
+		\phi(ax) & = \phi(a)\phi(x) \in I. 
+	\end{align*}
+	Thus $\phi^{-1}(I)$ is an ideal in $P$. For any ideal $J$ in $P$, $\forall a,b \in J, x \in P$,
+	\begin{align*}
+		\phi(a)-\phi(b) & =\phi(a-b) \in \phi(J), \\
+		\phi(x)\phi(a) & =\phi(xa) \in \phi(J), \\
+		\phi(a)\phi(x) & =\phi(ax) \in \phi(J). 
+	\end{align*}
+	Thus $\phi(J)$ is an ideal in $\phi(P)$.
+
+	Suppose $\phi^{-1}(I)=\<m\>$ for some $m\in P$, then $\phi^{-1}(\<\phi(m)\>)$ is an ideal in $P$ and $m\in \phi^{-1}(\<\phi(m)\>)$. Since $\phi^{-1}(I)\<m\>=\phi^{-1}(\<\phi(m)\>)$, we get $I=\<\phi(m)\>$ is a principal ideal and $\phi(P)$ is a principal ideal ring.
+	\item $Z_m\cong Z/mZ$, construct a map \begin{align*}
+		\phi:\quad Z &\to Z_m \\
+		z &\mapsto [z]_m
+	\end{align*}
+	For any $a,b\in Z$, \begin{align*}
+		\phi(a)+\phi(b) &= [a]_m+[b]_m=[a+b]_m, \\
+		\phi(a)\phi(b) &= [a]_m[b]_m=[ab]_m,
+	\end{align*}
+	thus $\phi$ is an epimorphism. By conclusions in the above two, $Z_m=\phi(Z)$ is a principal ideal ring.
+\end{enumerate}
+\qed
+
+\newpage
+\prob\textit{Page 133,23}
+An element $e$ in a ring $R$ is said to be idempotent if $e^2 = e$. 
+An element of the center of the ring $R$ is said to be central. 
+If $e$ is a central idempotent in a ring $R$ with identity, then
+\begin{enumerate}
+	\item $1_R - e$ is a central idempotent;
+	\item $eR$ and $(1_R - e)R$ are ideals in $R$ such that $R = eR \times (1_R - e)R$.
+\end{enumerate}
+\soln
+\begin{enumerate}
+	\item For any $a\in R$, 
+	\begin{align*}
+		a(1_R-e) & = a-ae =a-ea =(1_R-e)a; \\
+		(1_R-e)^2 & = 1_R-e-e+e^2 =1_R-e.
+	\end{align*}
+	Thus $1_R - e$ is a central idempotent.
+	\item For any central idempotent $f\in R$, $fa,fb \in fR$ and $x \in R$, \begin{align*}
+		fa-fb & = f(a-b) \in fR, \\
+		x(fa) & = (xf)a =(fx)a=f(xa) \in fR, \\
+		(fa)x & = f(ax) \in fR. 
+	\end{align*}
+	Thus $fR$ is an ideal and so do $eR,(1_R - e)R$. 
+	
+	For any $r\in R$, $r=er+(1_R -e)r\in eR+(1_R -e)R$ thus $R=eR+(1_R -e)R$. 
+	For $a\in eR \cap (1_R - e)R$, suppose $a=ex=(1_R -e)y$ for some $x,y\in R$. \begin{align*}
+		a &= ea+(1_R -e)a \\
+		&= e(1_R -e)y+(1_R -e)ex \\
+		&= (e-e^2)y+(e-e^2)x \\
+		&= 0.
+	\end{align*}
+	Therefore, $R = eR \times (1_R - e)R$.
+\end{enumerate}\qed
+
+\prob\textit{Page 133,24}
+Idempotent elements $e_1, \cdots ,e_n$ in a ring $R$ [see Exercise 23] are said to be orthogonal if $e_ie_j = 0$ for $i \neq j$. If $R, R_1, \cdots, R_n$ are rings with identity, then the following conditions are equivalent:
+\begin{enumerate}
+	\item $R \cong R_1 \times \cdots \times R_n$.
+	\item $R$ contains a set of orthogonal central idempotents [Exercise 23] $\{e_1, \cdots , e_n\}$ such that $e_l + e_2 + \cdots + e_n = 1_R$ and $e_iR \cong R_i$ for each i.
+	\item $R$ is the internal direct product $R = A_1 \times \cdots \times A_n$ where each $A_i$ is an ideal of $R$ such that $A_i \cong R_i$.
+
+	[Hint: (a)$\to$(b): The elements $f_1 = (1_{R_1},0, \cdots ,0), f_2 = (0,1_{R_2}, \cdots ,0)$, ,$ f_n = (0, \cdots ,0,1_{R_n})$ 
+	arf orthogonal cfntral idfmpotfnts in $S = R_1 \times \cdots \times R_n$ such that $f_1 + \cdots + f_n = 1_s$ and $f_iS\cong R_i$. 
+	(b) $\to$ (c) Note that $A_k = e_k R$ is the principal ideal $\<e_k\>$ in $R$ and that $e_kR$ is itself a ring with identity $e_k$.]
+\end{enumerate}
+\soln
+\begin{itemize}
+	\item[(a)$\Rightarrow$(b):] Let $S=R_1 \times \cdots \times R_n$, the elements $e_1 = (1_{R_1},0, \cdots ,0), e_2 = (0,1_{R_2}, \cdots ,0), \cdots , e_n = (0, \cdots ,0,1_{R_n})$ are orthogonal since $e_i e_j \in R_i \cap R_j =\{0\}$ for $i\neq j$. $1_S=\sum_{k=1}^n e_k$. For any $1\leq i\leq n$, $a=\sum_{k=1}^n e_k a_k\in S$, 
+	\begin{align*}
+		e_i a &= e_i a_i = a_i e_i = a e_i,\\
+		e_i^2 &= (0,\cdots,1_{R_i}^2,\cdots,0)= e_i.
+	\end{align*}
+	Thus $e_i$ is a central idempotent. Since $R\cong S$, $R$ also contains a set of orthogonal central idempotents satisfies the conditions.
+	\item[(b)$\Rightarrow$(c):] Let $A_i=e_i R\cong R_i$, then $R= A_1 \times \cdots \times A_n$.
+	\item[(c)$\Rightarrow$(a):] It suffices to show $R_1\times R_2\cong A_1 \times A_2$ where the products are both external products by \textbf{Theorem 2.24}. Suppose the isomorphism $\phi_1: R_1 \to A_1$ and $\phi_2: R_2 \to A_2$, and define
+	\begin{align*}
+		\phi:\quad R_1\times R_2 &\to A_1 \times A_2 \\
+		(r_1,r_2) &\mapsto (\phi_1(r_1),\phi_2(r_2)).
+	\end{align*}
+	$\phi$ is an isomorphism between groups. For any $(r_1,r_2),(s_1,s_2)\in R_1\times R_2$, \begin{align*}
+		(\phi_1(r_1),\phi_2(r_2))(\phi_1(s_1),\phi_2(s_2))&=(\phi_1(r_1)\phi_1(s_1),\phi_2(r_2)\phi_2(s_2)) \\
+		&= (\phi_1(r_1s_1),\phi_2(r_2s_2)) \\
+		&= \phi((r_1s_1,r_2s_2)),
+	\end{align*}
+	so $\phi$ is an isomorphism between rings. $R= A_1 \times \cdots \times A_n\cong  R_1 \times \cdots \times R_n$.
+\end{itemize}
+
+\qed
+
+%$|\frac{x^m-1}{x-1}-m|<\varepsilon$
+\end{enumerate}
+\end{document}

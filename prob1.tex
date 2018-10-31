@@ -1,0 +1,62 @@
+\input{defGn}
+%%%%%%%%
+\begin{document}
+\title{Probability Theory HW3}
+\author{\asemail}
+\maketitle
+
+%按照题号抄题并解答。
+\begin{enumerate}
+	\isep[1em]
+	\prob
+	Construct a counter example to show that if $\mu$ is not $\sigma$ finite, its extension from a semialgebra to the minimal $\sigma$-algebra may not be unique.
+	\soln
+	The semialgebra $\p S=\{(a,b]:a\leq b\}$, $\mu((a,b])=0$ if $(a,b]\cap (0,1]=\Oset$ and $\mu((a,b])=\infty$ if $(a,b]\cap (0,1]\neq\Oset$. Then the extension $\mu(\{1\})$ can be $0$ or $\infty$.
+
+	\prob
+	$\p S$ is a semialgebra, $\mu$ is a finite measure on $\p S$, the triple $(\Omega, \p A^*, \mu^*)$ is the completion of extension of $\mu$ on $\sigma(\p S)$. Let
+		\begin{align*}
+			\mu_*(A) & =\sup\{\bsum_n \mu(A_n): A_n\in\p S \text{ pairwise disjoint, }\bsum_n A_n\subset A\},
+			\\ \p A_*&=\{A\subset \Omega:\mu^*(A)=\mu_*(A)\}.
+		\end{align*}
+		Prove that $\p A^*\supset\p A_*$.
+	\soln
+	$\forall A\in\p A_*,D\subset \Omega$,
+		\begin{align*}
+			\mu^*(A\cap D) & =\inf\{\bsum_{n=1}^\infty \mu(B_n): B_n\in\p S,A\cap D\subset \bcup_{n=1}^\infty B_n\}
+			\\ \mu^*(A^c\cap D) & =\inf\{\bsum_{n=1}^\infty \mu(C_n): C_n\in\p S,A^c\cap D\subset \bcup_{n=1}^\infty C_n\}
+			\\ &=\inf\{\bsum_{n=1}^\infty \mu(C_n): C_n\in\p S,\bcap_{n=1}^\infty C_n^c\subset A\cup D^c\}
+			\\ &=
+		\end{align*}
+		\medskip
+
+		\prob
+		Let $\p C=\{C_{a,b}=[-b,a)\cup(a,b]:0<a<b\}$, and define the measure $\mu(C_{a,b})=b-a$. Prove that $\mu$ can extend to a measure on $\sigma(\p C)$. Is $[1,2]$ a $\mu^*$-measurable set?
+		\soln
+		Let $\p S=\p C\cup \{\r, \Oset\}$,
+		\begin{enumerate}
+			\item $\{\r, \Oset\}\subset \p S$
+			\item $\forall A,B\in \p S$, if $A=C_{a,b},B=C_{c,d}\in \p C$, $C_{a,b}\cap C_{c,d}=C_{\max{a,c},\min{b,d}}\in \p C\subset \p S$. In the case either of $A,B\in\{\r, \Oset\}$, $A\cap B\in \p S$ is trivial.
+			\item $\forall A,A_1\in \p S, A_1\subset A$, the case $A,A_1\in\{\r,\Oset\}$ is trivial. If $A=C_{a,b},A_1=C_{a_1,b_1}$, then $A\setminus A_1=C_{a,a_1}+C_{b_1,b}$.
+		\end{enumerate}
+		so $\p S$ is a semialgebra. Assign $\mu$ on $\r,\Oset$ to $\infty,0$ respectively, and then $\mu$ is a measure on $\p S$ analogue of the semialgebra on $\r$. By \textbf{Theorem 1.42} $\mu$ has a unique extension.
+
+		For $C_{1,2}\subset \r$, $\mu^*(C_{1,2})=1$ and $\mu^*([1,2])=\mu^*([-2,-1])=1$, i.e.$\mu^*(C_{1,2})\neq \mu^*([1,2]\cap C_{1,2})+\mu^*([-2,-1]^c\cap C_{1,2})$. $[1,2]$ is not a $\mu^*$-measurable set.
+		\prob
+		Let $f:\r \ni x\mapsto \frac{x}{3}\in \r, A_0=[0,1]$. Then the sequence of $A_{n+1}=f(A_n)\cup (\frac{2}{3}+f(A_n))(n\geq 0)$ is monotone decreasing. The limitation of $A_n$ is called Cantor set, $C=\bcap_n A_n$. Prove the Lebesgue measure of Cantor set is 0.
+		\soln
+		It suffices to prove the outer measure of $C$ is 0. $\forall n\geq 0$, $f(A_n) \cap (\frac{2}{3}+f(A_n))=\Oset$ and $A_n$ is sum of some intervals since $f(A_n)\subset f(A_0)=[0,\frac{1}{3}]$. Then
+	\begin{align*}
+		\mu(A_{n+1}) & = \mu(f(A_n))+ \mu((\frac{2}{3}+f(A_n))) & \text{finite additivity}
+		\\ & = \frac{2}{3}\mu(A_n) & \text{length of interval}
+		\\ & = (\frac{2}{3})^{n+1} & \text{inductively}.
+	\end{align*}
+	This follows
+	\begin{align*}
+		\mu(C)=\lim_{n\to \infty}\mu(A_n)=\lim_{n\to \infty}(\frac{2}{3})^n=0,
+	\end{align*}
+	by the continuity of measure.
+
+
+\end{enumerate}
+\end{document}
